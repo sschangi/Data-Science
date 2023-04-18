@@ -1,7 +1,7 @@
 # Data-Science
 This reop contains the codes and documentations for the Udacity Data Science nanodegree project. In this project, we aim to **write a Data Scientist Blog Post** analyzing the data set for [Seattle Airbnb Data](https://www.kaggle.com/datasets/airbnb/seattle).
 
-We particularly trying to answer the following questions:
+We particularly answer the following questions:
 - How much Airbnb homes are earning in certain time frames and areas?
 - What are the properties helping to predict price?
 - Can we find the lisings with positive and negative reviews?
