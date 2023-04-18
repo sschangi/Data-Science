@@ -6,6 +6,8 @@ We particularly answer the following questions:
 - What are the properties helping to predict price?
 - Can we find the lisings with positive and negative reviews?
 
+For the complete analysis see [How to choose an airbnb place in Seattle?](https://medium.com/@schangiz2002/how-to-choose-an-airbnb-place-in-seattle-556e04dba571)
+
 ## Dependencies
 Create the conda environment with:
 
