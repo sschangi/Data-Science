@@ -21,6 +21,17 @@ from sklearn.metrics import classification_report
 from sklearn.model_selection import GridSearchCV
 
 def load_data(database_filepath):
+    '''
+    Returns two data frames, i.e., one containing the data, and the other containing the labels along with the label names.
+
+    Parameters:
+        database_filepath (string): The file path of the sql table holding the data.
+
+    Returns:
+        X (pandas data frame): A data frame containing the messages
+        y (pandas data frame): A data frame contaiining the category labels
+        y.columns (list of strings): A list of the category labels
+    '''
     # load data from database
     engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql_table('InsertTableName', engine)
@@ -31,6 +42,16 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    '''
+    Returns the list of tokens.
+
+    Parameters:
+        text (string): A sentence od phrase in english
+
+    Returns:
+        clean_tokens (list of strings): A list containing the tokens
+    '''
+    
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     detected_urls = re.findall(url_regex, text)
     for url in detected_urls:
@@ -47,6 +68,14 @@ def tokenize(text):
     return clean_tokens
 
 def build_model():
+    '''
+    Builds a sklearn ML pipeline using tokenizer, TfidfTransformer, and 
+    RandomForest multioutput classifier.
+
+    Returns:
+        pipeline (Pipeline object): A sklearn Pipeline object
+    '''
+    
     pipeline = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
                         ('tdfidf', TfidfTransformer()),
                         ('clf', MultiOutputClassifier(RandomForestClassifier()))])
@@ -55,6 +84,17 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    '''
+    Evaluates a given ML model and prints the classification report, using 
+    precision, recall, and f1-score.
+
+    Parameters:
+        model (sklearn model): A sklearn model object
+        X_test (numpy array of strings): A numpy array holding the test data
+        Y_test (numpy array of integers): A numpy array holding the label test data
+        category_names (list of strings): A list of label categories
+    '''
+    
     Y_pred = model.predict(X_test)
     for i, category in enumerate(category_names):
         print("category : ", category)
@@ -62,6 +102,14 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    '''
+    Saves the trained sklearn ML model as a pickle file.
+
+    Parameters:
+        model (sklearn ML model): A trained sklearn ML model object.
+        model_filepath (string): The model file path.
+    '''
+    
     pickle.dump(model, open(model_filepath, 'wb'))
 
 
@@ -72,11 +120,6 @@ def main():
         X, Y, category_names = load_data(database_filepath)
         
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2)
-        
-#         print(type(X_train.values), type(Y_train.values))
-#         print(X_train.values.shape, Y_train.values.shape)
-#         print(X_train.values[:2].reshape([2]))
-#         assert False
         
         print('Building model...')
         model = build_model()
