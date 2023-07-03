@@ -14,7 +14,7 @@ For a summary of the analysis see the post [How to choose an airbnb place in Sea
 ## Project: Disaster Response Project
 In this Project, we use a data set containing real messages that were sent during disaster events. By creating a machine learning pipeline, we categorize these events so that one can send the messages to an appropriate disaster relief agency.
 
-The project includes a web app where an emergency worker can input a new message and get classification results in several categories. The files and scripts are located in the `Project-Disaster-Response-Pipeline` folder.
+The project includes a web app where an emergency worker can input a new message and get classification results in several categories. The files and scripts are located in the [Project-Disaster-Response-Pipeline](https://github.com/sschangi/Data-Science/tree/main/Project-Disaster-Response-Pipeline) folder.
 
 ## Dependencies
 Create the conda environment with:
