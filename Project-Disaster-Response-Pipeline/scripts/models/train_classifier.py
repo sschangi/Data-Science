@@ -79,8 +79,14 @@ def build_model():
     pipeline = Pipeline([('vect', CountVectorizer(tokenizer=tokenize)),
                         ('tdfidf', TfidfTransformer()),
                         ('clf', MultiOutputClassifier(RandomForestClassifier()))])
-    
-    return pipeline
+    parameters = {
+        'vect__ngram_range': ((1, 1), (1, 2)),
+        'clf__estimator__n_estimators': [25, 100],
+        'clf__estimator__min_samples_split': [2, 4]
+    }
+
+    cv = GridSearchCV(pipeline, param_grid=parameters, cv=2, verbose = 3)
+    return cv
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
@@ -125,10 +131,31 @@ def main():
         model = build_model()
         
         print('Training model...')
-        model.fit(X_train.values.reshape(X_train.values.shape[0]), Y_train.values)
+        X_train = X_train.values.reshape(X_train.values.shape[0])
+        Y_train = Y_train.values
+        
+        idx = np.argwhere(~np.isnan(Y_train))
+        indices = set()
+        for index in idx:
+            indices.add(index[0])
+        
+        X_train = X_train[list(indices)]
+        Y_train = Y_train[list(indices)]
+        model.fit(X_train, Y_train)
         
         print('Evaluating model...')
-        evaluate_model(model, X_test.values.reshape(X_test.values.shape[0]), Y_test.values, category_names)
+        
+        X_test = X_test.values.reshape(X_test.values.shape[0])
+        Y_test = Y_test.values
+        
+        idx = np.argwhere(~np.isnan(Y_test))
+        indices = set()
+        for index in idx:
+            indices.add(index[0])
+            
+        X_test = X_test[list(indices)]
+        Y_test = Y_test[list(indices)]
+        evaluate_model(model, X_test, Y_test, category_names)
 
         print('Saving model...\n    MODEL: {}'.format(model_filepath))
         save_model(model, model_filepath)
