@@ -7,7 +7,7 @@ In this project, we aim to **write a Data Scientist Blog Post** analyzing the da
 We particularly answer the following questions:
 - How much Airbnb homes are earning in certain time frames and areas?
 - What are the properties helping to predict price?
-- Can we find the lisings with positive and negative reviews?
+- Can we find the listings with positive and negative reviews?
 
 For a summary of the analysis see the post [How to choose an airbnb place in Seattle?](https://medium.com/@schangiz2002/how-to-choose-an-airbnb-place-in-seattle-556e04dba571)
 
