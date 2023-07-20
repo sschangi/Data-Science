@@ -17,7 +17,7 @@ In this Project, we use a data set containing real messages that were sent durin
 The project includes a web app where an emergency worker can input a new message and get classification results in several categories. The files and scripts are located in the [Project-Disaster-Response-Pipeline](https://github.com/sschangi/Data-Science/tree/main/Project-Disaster-Response-Pipeline) folder.
 
 ## Project: Recommendations with IBM
-In this project, we analyze the interactions that users have with articles on the [IBM Watson Studio platform](https://dataplatform.cloud.ibm.com/login), and make recommendations to them about new articles you think they will like. The files and scripts are located in the [Project-Recommendation-Engine](https://github.com/sschangi/Data-Science/tree/main/Project-Recommendation-Engine) folder.
+In this project, we analyze the interactions that users have with articles on the [IBM Watson Studio platform](https://dataplatform.cloud.ibm.com/login), and make recommendations to them about new articles you think they will like, using rank-based, collaborative filtering, and svd decompositions approaches in recommendation. The files and scripts are located in the [Project-Recommendation-Engine](https://github.com/sschangi/Data-Science/tree/main/Project-Recommendation-Engine) folder.
 
 ## Dependencies
 Create the conda environment with:
