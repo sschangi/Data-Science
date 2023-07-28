@@ -19,6 +19,9 @@ The project includes a web app where an emergency worker can input a new message
 ## Project: Recommendations with IBM
 In this project, we analyze the interactions that users have with articles on the [IBM Watson Studio platform](https://dataplatform.cloud.ibm.com/login), and make recommendations to them about new articles we think they will like, using rank-based, collaborative filtering, and svd decomposition approaches in recommendation systems. The files and scripts are located in the [Project-Recommendation-Engine](https://github.com/sschangi/Data-Science/tree/main/Project-Recommendation-Engine) folder.
 
+## Project: Big Data with Spark
+In the project, we try to predict the churn rates of a music app, called Sparkify. The full dataset is 12GB, of which we analyze a mini subset of 128MB. The project includes a web app using Flask. The app can run locally by running `python run.py` and going to `http://localhost:3001/`. For the complete codes and documentation see [Project-Big-Data-Spark](https://github.com/sschangi/Data-Science/tree/main/Project-Big-Data-Spark) folder. 
+
 ## Dependencies
 Create the conda environment with:
 
