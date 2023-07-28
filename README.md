@@ -34,3 +34,5 @@ List of used dependencies are as follow:
 - seaborn=0.12.2
 - vaderSentiment=3.3.2
 - Flask=0.12.5
+- plotly=5.11.0
+- pyspark=3.4.1
