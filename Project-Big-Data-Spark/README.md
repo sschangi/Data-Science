@@ -3,3 +3,18 @@ The churn problem refers to the phenomenon where customers or users of a service
 In this project, we classify the users of the Sparkify app into two groups: churned and non-churned users. The focus of this endeavor lies in analyzing extensive data using Pyspark and developing a web application tailored for churn classification.
 
 In the project, we try to predict the churn rates of a music app, called Sparkify. The full dataset is 12GB, of which we analyze a mini subset of 128MB. 
+
+## Dependencies
+Create the conda environment with:
+
+`conda create --name myenv python=3.10`
+
+List of used dependencies are as follow:
+
+- pandas=1.5.3
+- numpy=1.23.5
+- scikit-learn=1.2.1
+- matplotlib=3.7.1
+- Flask=0.12.5
+- plotly=5.11.0
+- pyspark=3.4.1
