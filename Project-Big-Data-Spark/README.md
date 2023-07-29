@@ -35,5 +35,6 @@ List of used dependencies are as follow:
 - pyspark=3.4.1
 
 ## Acknowledgements
-I would like to thank [Udacity](https://www.udacity.com/) for providing the [Full Sparkify Dataset](s3n://udacity-dsnd/sparkify/sparkify_event_data.json) as well as the [Mini Sparkify Dataset](s3n://udacity-dsnd/sparkify/mini_sparkify_event_data.json).
+I would like to thank [Udacity](https://www.udacity.com/) for providing the [Full Sparkify Dataset](s3n://udacity-dsnd/sparkify/sparkify_event_data.json) as well as the [Mini Sparkify Dataset](s3n://udacity-dsnd/sparkify/mini_sparkify_event_data.json). The Full Sparkify Dataset can be found at `s3n://udacity-dsnd/sparkify/sparkify_event_data.json`, and the Mini Sparkify Dataset can be found at `s3n://udacity-dsnd/sparkify/mini_sparkify_event_data.json`.
+
 
