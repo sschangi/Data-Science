@@ -4,7 +4,22 @@ In this project, we classify the users of the Sparkify app into two groups: chur
 
 In the project, we try to predict the churn rates of a music app, called Sparkify. The full dataset is 12GB, of which we analyze a mini subset of 128MB. 
 
-## Dependencies
+## List of all the files in the repository:
+- `Sparkify.ipynb`: contains all steps: Loading and Cleaning data, EDA analysis, Feature Engineering, ML modeling, and Evaluations.
+- `app\run.py`: module to deploy and run the flask app into a local server.
+- `app\templates\master.html`: display the main page of the web app.
+- `app\templates\expanalysis.html`: display the EDA analysis.
+- `app\templates\featureengineering.html`: display plots for the relavent features.
+- `app\templates\mlmodel.html`: display the results of the best ML models, i.e, Logistic regression (LR), and Random Forest (RF) on the training and the test data along with coefficient importance plot for the LR model.
+
+## Intruction to run the Web Application
+- Run the following command in the app directory and start a local web app using the flask server:
+  ```
+  - python run.py
+  - Go to http://localhost:3001/
+  ```
+
+## Libraries used
 Create the conda environment with:
 
 `conda create --name myenv python=3.10`
@@ -18,3 +33,7 @@ List of used dependencies are as follow:
 - Flask=0.12.5
 - plotly=5.11.0
 - pyspark=3.4.1
+
+## Acknowledgements
+I would like to thank [Udacity](https://www.udacity.com/) for providing the Sparkify dataset.
+
