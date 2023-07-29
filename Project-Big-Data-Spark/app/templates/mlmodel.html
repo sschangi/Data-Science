@@ -42,10 +42,10 @@
     {% block content %}
         <div class="page-header">
             <h1 class="text-center">ML Model and Results</h1>
-            <p class="text-center"> We use a logistic regression classifier. As indicated in the first figure below, 
-                the most import feature is number of thumbs down per song or DownPerSong. We also show the roc and 
-                precision-recall curves for the training as well as test sets. 
-                It is worth noting that the auc of the roc and pr curves for the test set, are 0.97 and 0.94, respectively.</p>
+            <p class="text-center"> For ML models, we use a logistic regression (LR) classifier and a Random Forest (RF) classifier. As indicated in the first figure below, 
+                For the LR model, as indicated in the figure below, the most import feature is number of thumbs down per song or DownPerSong. 
+                We also show the roc and precision-recall curves for the training as well as test sets for both models. 
+                As indicated in the test curves below, both models are able to achieve the perfect scores on the test set.</p>
         </div>
     {% endblock %}
 

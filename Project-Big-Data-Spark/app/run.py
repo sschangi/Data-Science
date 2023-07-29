@@ -125,20 +125,33 @@ def mlmodel():
             render_template(render_template): Render template for the plots  
         
     """
+
+    # Logistic Reression (LR) Evaluations
     coefs_df = pd.read_csv("data/coefs_df.csv")
 
-    roc_metrics_train = pd.read_csv("data/training_roc.csv")
-    pr_metrics_train = pd.read_csv("data/training_pr.csv")
+    lr_roc_metrics_train = pd.read_csv("data/lr_training_roc.csv")
+    lr_pr_metrics_train = pd.read_csv("data/lr_training_pr.csv")
 
-    roc_metrics_test = pd.read_csv("data/roc_metrics.csv")
-    pr_metrics_test = pd.read_csv("data/pr_metrics.csv")
+    lr_roc_metrics_test = pd.read_csv("data/lr_test_roc_metrics.csv")
+    lr_pr_metrics_test = pd.read_csv("data/lr_test_pr_metrics.csv")
+
+    # Random Forest (RF) Evaluations
+    rf_roc_metrics_train = pd.read_csv("data/rf_train_roc_metrics.csv")
+    rf_pr_metrics_train = pd.read_csv("data/rf_train_pr_metrics.csv")
+
+    rf_roc_metrics_test = pd.read_csv("data/rf_test_roc_metrics.csv")
+    rf_pr_metrics_test = pd.read_csv("data/rf_test_pr_metrics.csv")
 
     
     graphs = [plot_coefs(coefs_df), 
-              plot_roc_curve(roc_metrics_train['FPR'], roc_metrics_train['TPR'], 'Train Data'),
-              plot_pr_curve(pr_metrics_train['recall'], pr_metrics_train['precision'], 'Train Data'),
-              plot_roc_curve(roc_metrics_test['FPR'], roc_metrics_test['TPR'], 'Test Data'),
-              plot_pr_curve(pr_metrics_test['Recall'], pr_metrics_test['Precision'], 'Test Data')
+              plot_roc_curve(lr_roc_metrics_train['FPR'], lr_roc_metrics_train['TPR'], 'Train Data - LR'),
+              plot_pr_curve(lr_pr_metrics_train['recall'], lr_pr_metrics_train['precision'], 'Train Data - LR'),
+              plot_roc_curve(lr_roc_metrics_test['FPR'], lr_roc_metrics_test['TPR'], 'Test Data - LR'),
+              plot_pr_curve(lr_pr_metrics_test['Recall'], lr_pr_metrics_test['Precision'], 'Test Data - LR'),
+              plot_roc_curve(rf_roc_metrics_train['FPR'], rf_roc_metrics_train['TPR'], 'Train Data - RF'),
+              plot_pr_curve(rf_pr_metrics_train['Recall'], rf_pr_metrics_train['Precision'], 'Train Data - RF'),
+              plot_roc_curve(rf_roc_metrics_test['FPR'], rf_roc_metrics_test['TPR'], 'Test Data - RF'),
+              plot_pr_curve(rf_pr_metrics_test['Recall'], lr_pr_metrics_test['Precision'], 'Test Data - RF')
               ]
     
     ids = ["graph-{}".format(i) for i, _ in enumerate(graphs)]
